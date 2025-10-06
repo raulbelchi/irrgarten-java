@@ -3,11 +3,12 @@ package irrgarten;
 public class Shield {
     private float protection;
     private int uses;
+    private Dice dado = new Dice();
     
     //Constructor
-    private Shield(float protection, int uses){
-        protection = this.protection;
-        uses = this.uses;
+    public Shield(float protection, int uses){
+        this.protection = protection;
+        this.uses = uses;
     }
     
     public float protect(){
@@ -21,8 +22,10 @@ public class Shield {
 
     @Override
     public String toString() {
-        return "S[" + protection + ", " + uses + ']';
+        return "S[" + protection + ", " + uses + "]";
     }
     
-    
+    public boolean discard(){
+        return dado.discardElement(uses);
+    }
 }

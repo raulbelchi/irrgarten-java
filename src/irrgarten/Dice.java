@@ -33,7 +33,7 @@ public class Dice {
     }
     
     public boolean resurrectPlayer(){
-        return generator.nextBoolean(RESURRECTION_PROB);
+        return generator.nextFloat(1) <= RESURRECT_PROB;
     }
     
     public int weaponsReward(){
@@ -71,14 +71,7 @@ public class Dice {
         } else if(usesLeft == 0){
             return true;
         } else{
-            //implementar
+            return generator.nextInt(MAX_USES) <= usesLeft;                
         }
-    } 
-            
-    /*este método devuelve true con una probabilidad
-    inversamente proporcional a lo cercano que esté el parámetro del número máximo de usos que
-    puede tener un arma o escudo. Como casos extremos, si el número de usos es el máximo devolverá
-    false y si es 0 devolverá true. Es decir, las armas o escudos con más usos posibles es menos
-    probable que sean descartados*/
-
+    }      
 }

@@ -71,7 +71,7 @@ public class Dice {
         } else if(usesLeft == 0){
             return true;
         } else{
-            return generator.nextInt(MAX_USES) <= usesLeft;                
+            return generator.nextInt(MAX_USES) >= usesLeft;                
         }
     }      
 }

@@ -20,8 +20,29 @@ public class TestP1 {
         
         Dice dado = new Dice();
         
-        for(int i=0; i<100; i++){
+        System.out.println("Prueba shieldsReward");
+        for(int i=0; i<10; i++){
             System.out.println(dado.shieldsReward());
+        }
+        
+        System.out.println("Prueba healthReward");
+        for(int i=0; i<10; i++){
+            System.out.println(dado.healthReward());
+        }
+        
+        System.out.println("Prueba resurrectPlayer");
+        for(int i=0; i<10; i++){
+            System.out.println(dado.resurrectPlayer());
+        }
+        
+        System.out.println("Prueba discardElement");
+        for(int i=0; i<10; i++){
+            System.out.println(dado.discardElement(5));
+        }
+        
+        System.out.println("Prueba randomStrength");
+        for(int i=0; i<10; i++){
+            System.out.println(dado.randomStrength());
         }
     }
 }

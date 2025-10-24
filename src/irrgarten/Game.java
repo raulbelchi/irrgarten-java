@@ -8,9 +8,9 @@ public class Game {
     private int currentPlayerIndex;
     private String log;
     
-    private ArrayList<Monster> monsters;
+    private ArrayList<Monster> monsters = new ArrayList<>();
+    private ArrayList<Player> players = new ArrayList<>();
     private Labyrinth labyrinth;
-    private ArrayList<Player> players;
     private Player currentPlayer;
 
     public Game(int nplayers){        
@@ -39,7 +39,7 @@ public class Game {
     }
     
     private void configureLabyrinth(){
-        labyrinth.addBlock(Orientation.HORIZONTAL, 0, 0, 10);
+        //labyrinth.addBlock(Orientation.HORIZONTAL, 0, 0, 10);
         
         //Añade monstruos al laberinto en posiciones aleatorias
         Monster monstruo1 = new Monster("monstruo1", Dice.randomIntelligence(), Dice.randomStrength());
@@ -51,7 +51,7 @@ public class Game {
     }
     
     private void nextPlayer() {
-c
+
     }
     
     private Directions actualDirection(Directions preferredDirection){

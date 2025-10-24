@@ -33,7 +33,7 @@ public class Monster {
         return Dice.intensity(strength);
     }
     
-    public float deffend(float receivedAttack){
+    public float defend(float receivedAttack){
         //IMPLEMENTAR
         throw new UnsupportedOperationException();
     }

@@ -20,15 +20,32 @@ public class Labyrinth {
     private int exitCol;
     
     //Implementación de las clases "square"
-    private Monster[][] monsters = new Monster[nRows][nCols];
-    private Player[][] players = new Player[nRows][nCols];
-    private char[][] labyrinth = new char[nRows][nCols];
+    private Monster[][] monsters;
+    private Player[][] players;
+    private char[][] labyrinth;
 
     public Labyrinth(int nRows, int nCols, int exitRow, int exitCol) {
         this.nRows = nRows;
         this.nCols = nCols;
         this.exitRow = exitRow;
         this.exitCol = exitCol;
+        
+        monsters = new Monster[nRows][nCols];
+        players = new Player[nRows][nCols];
+        labyrinth = new char[nRows][nCols];
+        
+        //Rellenamos el laberinto con carácteres vacíos y los muros exteriores
+        for(int i=0; i<nRows; i++){
+            for(int j=0; j<nCols; j++){
+                if(i == exitRow && j == exitCol){
+                    labyrinth[i][j] = EXIT_CHAR;
+                } else if(i == 0 || i == (nRows-1) || j == 0 || j == (nCols-1)){
+                    labyrinth[i][j] = BLOCK_CHAR;
+                } else{
+                    labyrinth[i][j] = EMPTY_CHAR;
+                }
+            }
+        }
     }
     
     public void spreadPlayers(ArrayList<Player> players){
@@ -43,7 +60,16 @@ public class Labyrinth {
 
     @Override
     public String toString() {
-        return "Labyrinth{" + "nRows=" + nRows + ", nCols=" + nCols + ", exitRow=" + exitRow + ", exitCol=" + exitCol + '}';
+        String  laberinto = "";
+        
+        for (int i = 0; i < nRows; i++) {
+            for (int j = 0; j < nCols; j++) {
+                laberinto += labyrinth[i][j] + " ";
+            }
+            laberinto += "\n"; // Salto de línea al final de cada fila
+        }
+        
+        return laberinto;
     }
     
     public void addMonster(int row, int col, Monster monster){

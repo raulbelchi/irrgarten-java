@@ -5,11 +5,17 @@
         <group>
             <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Directions.java</file>
             <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Weapon.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Labyrinth.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Monster.java</file>
             <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/TestP1.java</file>
             <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/GameCharacter.java</file>
-            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Dice.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Player.java</file>
             <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/GameState.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Dice.java</file>
             <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Shield.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/TestP2.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Orientation.java</file>
+            <file>file:/C:/Users/Raul/Documents/NetBeansProjects/irrgarten/src/irrgarten/Game.java</file>
         </group>
     </open-files>
 </project-private>

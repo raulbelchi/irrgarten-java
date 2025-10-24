@@ -3,7 +3,6 @@ package irrgarten;
 public class Shield {
     private float protection;
     private int uses;
-    private Dice dado = new Dice();
     
     //Constructor
     public Shield(float protection, int uses){
@@ -26,6 +25,6 @@ public class Shield {
     }
     
     public boolean discard(){
-        return dado.discardElement(uses);
+        return Dice.discardElement(uses);
     }
 }

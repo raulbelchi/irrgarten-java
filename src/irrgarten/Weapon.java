@@ -4,7 +4,6 @@ public class Weapon {
     
     private float power;
     private int uses;
-    private Dice dado = new Dice();
     
     //Constructor
     public Weapon(float power, int uses){
@@ -27,7 +26,7 @@ public class Weapon {
     }
     
     public boolean discard(){
-        return dado.discardElement(uses);
+        return Dice.discardElement(uses);
     }
  
 }

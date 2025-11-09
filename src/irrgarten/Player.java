@@ -62,37 +62,86 @@ public class Player {
         }
     }
     
-    public Directions move(Directions direction, Directions[] validMoves){
-        //IMPLEMENTAR
-        throw new UnsupportedOperationException();
+    public Directions move(Directions direction, ArrayList<Directions> validMoves){
+        int size = validMoves.size();
+        boolean contained = validMoves.contains(direction);
+        
+        if(size > 0 && !contained){
+            return validMoves.get(0);
+        } else{
+            return direction;
+        }
     }
     
     public float attack(){
         return strength + sumWeapons();
     }
     
-    public boolean deffend(float receivedAttack){
+    public boolean defend(float receivedAttack){
         return manageHit(receivedAttack);
     }
     
     public void receiveReward(){
-        //IMPLEMENTAR
-        throw new UnsupportedOperationException();
+        int wReward = Dice.weaponsReward();
+        int sReward = Dice.shieldsReward();
+        
+        for(int i = 1; i<= wReward; i++){
+            Weapon wnew = newWeapon();
+            receiveWeapon(wnew);
+        }
+        
+        for(int i = 1; i<= sReward; i++){
+            Shield snew = newShield();
+            receiveShield(snew);
+        }
+        
+        int extraHealth = Dice.healthReward();
+        health += extraHealth;
     }
 
     @Override
     public String toString() {
-        return "Player{" + "name=" + name + ", number=" + number + ", intelligence=" + intelligence + ", strength=" + strength + ", health=" + health + ", row=" + row + ", col=" + col + ", consecutiveHits=" + consecutiveHits +  '}';
+        return "Player{" + "name=" + name + ", number=" + number + ", intelligence=" + intelligence + ", strength=" + strength + ", health=" + health + ", row=" + row + ", col=" + col + ", consecutiveHits=" + consecutiveHits + "\nweapons=" + weapons + "\nshields=" + shields + '}';
     }
             
-    private void receiveWapon(Weapon w){
-        //IMPLEMENTAR
-        throw new UnsupportedOperationException();
+    private void receiveWeapon(Weapon w){
+        Weapon wi;
+        boolean discard;
+        
+        for (int i = 0; i < weapons.size(); i++){
+            wi = weapons.get(i);
+            discard = wi.discard();
+            
+            if(discard){
+                weapons.remove(wi);
+            }
+        }
+        
+        int size = weapons.size();
+        
+        if(size < MAX_WEAPONS){
+            weapons.add(w);
+        }
     }
     
     private void receiveShield(Shield s){
-        //IMPLEMENTAR
-        throw new UnsupportedOperationException();
+        Shield si;
+        boolean discard;
+        
+        for (int i = 0; i < shields.size(); i++){
+            si = shields.get(i);
+            discard = si.discard();
+            
+            if(discard){
+                shields.remove(si);
+            }
+        }
+        
+        int size = shields.size();
+        
+        if(size < MAX_SHIELDS){
+            shields.add(s);
+        }
     }
     
     
@@ -125,8 +174,24 @@ public class Player {
     }
     
     private boolean manageHit(float receivedAttack){
-        //IMPLEMENTAR
-        throw new UnsupportedOperationException();
+        float defense = defensiveEnergy();
+        boolean lose;
+        
+        if(defense < receivedAttack){
+            gotWounded();
+            incConsecutiveHits();
+        } else{
+            resetHits();
+        }
+        
+        if(consecutiveHits == HITS2LOSE || dead()){
+            resetHits();
+            lose = true;
+        } else{
+            lose = false;
+        }
+        
+        return lose;
     }
     
     private void resetHits(){

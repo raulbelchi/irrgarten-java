@@ -3,7 +3,7 @@ package irrgarten;
 
 public class TestP2 {
     public static void main(String[] args){
-        Game juego = new Game(2);
+        Game juego = new Game(2, false);
         GameState estado = juego.getGameState();
         
         System.out.println(estado.getLabyrinth());

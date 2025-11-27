@@ -266,4 +266,11 @@ public class Labyrinth {
         return nCols;
     }
     
+    //Método para añadir el fuzzy player al laberinto
+    public void setFuzzyPlayer(FuzzyPlayer fp){
+        int row = fp.getRow();
+        int col = fp.getCol();
+        
+        players[row][col] = fp;
+    }
 }

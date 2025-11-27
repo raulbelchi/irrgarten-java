@@ -1,5 +1,6 @@
 package irrgarten;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Dice {
@@ -74,4 +75,12 @@ public class Dice {
     public static int usesLeft(){
         return generator.nextInt(MAX_USES);
     }  
+    
+    public static Directions nextStep(Directions preference, ArrayList<Directions> validMoves, float intelligence){
+        if(generator.nextFloat(MAX_INTELLIGENCE) <= intelligence){
+            return preference;
+        } else{
+            return validMoves.get(generator.nextInt(validMoves.size()));
+        }
+    }
 }

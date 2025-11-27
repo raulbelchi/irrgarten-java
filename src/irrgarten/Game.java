@@ -98,17 +98,7 @@ public class Game {
         labyrinth.addMonster(Dice.randomPos(labyrinth.getnRows()), Dice.randomPos(labyrinth.getnCols()), monstruo2); 
     }
     
-        private void configureLabyrinthDebug(){
-        labyrinth.addBlock(Orientation.VERTICAL, 1, 2, 3);
-        labyrinth.addBlock(Orientation.HORIZONTAL, 3, 3, 4);
-        labyrinth.addBlock(Orientation.VERTICAL, 4, 3, 4);
-        labyrinth.addBlock(Orientation.VERTICAL, 3, 8, 1);
-        labyrinth.addBlock(Orientation.VERTICAL, 2, 5, 1);
-        labyrinth.addBlock(Orientation.VERTICAL, 8, 5, 1);
-        labyrinth.addBlock(Orientation.VERTICAL, 7, 2, 1);
-        labyrinth.addBlock(Orientation.VERTICAL, 6, 5, 1);
-
-        
+        private void configureLabyrinthDebug(){   
         //Añade monstruos al laberinto
         Monster monstruo1 = new Monster("monstruo1", 1000, 1000);
         monsters.add(monstruo1);
@@ -172,7 +162,11 @@ public class Game {
         boolean resurrect = Dice.resurrectPlayer();
         
         if(resurrect){
-            currentPlayer.resurrect();
+            FuzzyPlayer fuzzyPlayer = new FuzzyPlayer(currentPlayer);
+            fuzzyPlayer.resurrect();
+            currentPlayer = fuzzyPlayer;
+            players.set(currentPlayerIndex, fuzzyPlayer);
+            labyrinth.setFuzzyPlayer(fuzzyPlayer);
             logResurrected();
         } else{
             logPlayerSkipTurn();
